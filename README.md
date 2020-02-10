@@ -1,3 +1,12 @@
+# D3D Keyboard
+HoloLens D3D Keyboard was originally created for HoloLens.
+V2.0 was updated to work with the new Mixed Reality Toolkit (MRTK) on HoloLens2 and Oculus Quest. 
+
+[![Demo video](https://i.imgur.com/6aGOeI5.png)](https://youtu.be/p1wQHyZKwhk)
+
+Test scene "KeyboardMRTKQuest.unity" was implemented based on a fork from Eric Provencher's MRTK-Quest (see below). 
+
+
 # MRTK-Quest
 MRTK-Quest is a Mixed Reality Toolkit (MRTK) extension for Oculus Quest, now with support for Rift/Rift S as well.
 It was built to showcase the hand-driven interaction model designed by Microsoft for HoloLens 2, on the Oculus ecosystem.
