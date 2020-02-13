@@ -2,13 +2,13 @@
 HoloLens D3D Keyboard was originally created for HoloLens.
 V2.0 was updated to work with the new Mixed Reality Toolkit (MRTK) on HoloLens2 and Oculus Quest. 
 
-# Demo video on Oculus Quest: 
-[![Demo video on Oculus Quest](https://i.imgur.com/6aGOeI5.png)](https://youtu.be/p1wQHyZKwhk)
-
-__________________________________________________________________________________________
 
 # Demo video on HoloLens 2: 
 [![Demo video on HoloLens 2](https://i.imgur.com/rOZQKEG.png)](https://youtu.be/lTtBDCKlrXA)
+__________________________________________________________________________________________
+# Demo video on Oculus Quest: 
+[![Demo video on Oculus Quest](https://i.imgur.com/6aGOeI5.png)](https://youtu.be/p1wQHyZKwhk)
+
 
 # Overview:
 This repository features a full-size 3D keyboard for XR app developers, to be used in D3D build, for in-App username / password / url entries. Organized as Drag-and-drop prefabs. Hand-crafted keyboard includes: uppercase, lowercase, digits, and most symbols available on a standard English keyboard. Special keys: "⇧": Shift; "␣": Space; "⇦": Backspace; "⏎": Return, starting on a new line. Non-special keys can be easily customized. Built-in with Show/Hide (green “done”) button. Four original recordings of key-typing sound.  
