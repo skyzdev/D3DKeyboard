@@ -11,6 +11,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Aa]pp/
+/UWP/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
