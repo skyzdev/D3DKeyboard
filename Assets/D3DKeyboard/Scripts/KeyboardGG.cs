@@ -1,27 +1,24 @@
-﻿//Author and copyright owner: Matrix Inception Inc.
-//HoloLens D3D Keyboard v1.3
-//Date: 2017-02-22
+﻿//Author: Sky Zhou, Matrix Inception Inc.
+//HoloLens D3D Keyboard v2.0
+//Date: 2020-02-02
 //This script is attached to each key, and prompts an action when a key is selected.
 //
 
 using UnityEngine;
 using System.Collections;
-//using HoloToolkit.Unity.InputModule;
 
-public class KeyboardGG : MonoBehaviour//, IInputClickHandler
+public class KeyboardGG : MonoBehaviour
 {
 
     public GameObject KeyboardOne;
     KeyboardMain keyboardMain;
 
-    //inputString keys track of typed message
     string inputString; 
     string keyName;
     int keySoundIndex;
     AudioSource audioSource;
     Color keyColor;
     float lastTypeTime;
-    //UnityEngine.UI.Button uiButton;
 
     // Use this for initialization
     void Start () {
@@ -33,7 +30,7 @@ public class KeyboardGG : MonoBehaviour//, IInputClickHandler
         audioSource = KeyboardOne.GetComponent<AudioSource>();
         keyColor = GetComponent<MeshRenderer>().material.GetColor("_Color");
 
-        if (GetComponent<Microsoft.MixedReality.Toolkit.UI.PressableButton>() != null)
+        if (GetComponent<Microsoft.MixedReality.Toolkit.UI.PressableButton>() != null && GetComponent<Microsoft.MixedReality.Toolkit.UI.PressableButton>().enabled)
         {
             GetComponent<Microsoft.MixedReality.Toolkit.UI.PressableButton>().ButtonPressed.AddListener(UI_OnClick);
         }
@@ -42,10 +39,6 @@ public class KeyboardGG : MonoBehaviour//, IInputClickHandler
         {
             GetComponentInChildren<Microsoft.MixedReality.Toolkit.UI.Interactable>().OnClick.AddListener(UI_OnClick);
         }
-
-        //uiButton = gameObject.AddComponent<UnityEngine.UI.Button>();
-        //uiButton.onClick.AddListener(UI_OnClick);
-
     }
 	
 	// Update is called once per frame
@@ -55,26 +48,6 @@ public class KeyboardGG : MonoBehaviour//, IInputClickHandler
             GetComponent<MeshRenderer>().material.SetColor("_Color", keyColor);
         }
     }
-
-
-    //This replaced OnSelect() method used in Version 1.2 or earlier
-    /*
-    public void OnInputClicked()//InputClickedEventData eventData)
-    {
-#if UNITY_WSA
-        UI_OnClick();
-#endif
-    }
-    */
-
-/*
-#if !UNTIY_WSA
-    public void OnMouseDown()
-    {
-        UI_OnClick();
-    }
-#endif
-*/
 
 
     public void UI_OnClick()
@@ -119,11 +92,9 @@ public class KeyboardGG : MonoBehaviour//, IInputClickHandler
                 keyboardMain.InputDisplay.transform.localPosition += Vector3.up * 0.07f;
                 break;
             case "keyDone":
-                //keyboardMain.OnDone();
                 keyboardMain.CloseKeyboard();
                 break;
             case "keyDoneOutside":
-                //keyboardMain.OnDone();
                 keyboardMain.OpenKeyboard();
                 break;
             default:
@@ -138,7 +109,6 @@ public class KeyboardGG : MonoBehaviour//, IInputClickHandler
                 break;
         }
 
-        //keyboardMain.InputDisplay.GetComponent<TextMesh>().text = inputString;
         keyboardMain.SetCurrentInputText(inputString);
         inputString = null;
     }

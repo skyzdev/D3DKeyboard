@@ -1,13 +1,11 @@
-﻿//Author and copyright owner: Matrix Inception Inc.
-//HoloLens D3D Keyboard v1.3
-//Date: 2017-02-22
-//This script controls higher level functions of the keyboard, namely Shift, Show / Hide, and Move / Pin.
+﻿//Author: Sky Zhou, Matrix Inception Inc.
+//HoloLens D3D Keyboard v2.0
+//Date: 2020-02-02
+//This script controls higher level functions of the keyboard, namely Shift, Show / Hide.
 
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-//using UnityEngine.Windows.Speech;
-//using HoloToolkit.Unity.InputModule;
 
 public class KeyboardMain : MonoBehaviour {
 
@@ -37,7 +35,6 @@ public class KeyboardMain : MonoBehaviour {
     public string[] inputStrings;
     public InputType[] fieldTypes;
 
-    //Dictionary<string, int> typeIndex;
     int[] maxChars= {9999, 50, 20, 20, 20 };
     int[] minChars= {0, 5, 4, 6, 5 };
     string[] allowedCharStrings = new string[5] {"", "abcdefghijklmnopqrstuvwxyz1234567890@.-_", "abcdefghijklmnopqrstuvwxyz1234567890-", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()-_+=[]{},./<>?;:'|`~ ", "Rom1234567890"};
@@ -47,6 +44,8 @@ public class KeyboardMain : MonoBehaviour {
     //List<char>[] requiredChars;
 
     public GameObject keyboardAll;
+
+    //for use with multiple input fields 
     public TextMesh[] inputFields;
     public int inputFieldIndex=0;
 
@@ -60,16 +59,7 @@ public class KeyboardMain : MonoBehaviour {
         }
 
         displayScale = InputDisplay.transform.localScale.x;
-        //typeIndex = new Dictionary<string, int>();
 
-        // Add some elements to the dictionary. When elements are  
-        // added through the ICollection<T> interface, the keys 
-        // and values must be wrapped in KeyValuePair objects. 
-        //
-        //typeIndex.Add("email", 0);
-        //typeIndex.Add("username", 1);
-        //typeIndex.Add("password", 2);
-        //typeIndex.Add("roomname", 3);
 
         allowedChars = new List<char>[allowedCharStrings.Length];
         for (int i = 0; i < allowedChars.Length; i++)
@@ -227,7 +217,6 @@ public class KeyboardMain : MonoBehaviour {
                     OnDone();
                     inputFields[inputFieldIndex].text = (fieldTypes[inputFieldIndex] == InputType.password ? MaskPassword(finishedText): finishedText);
                     inputStrings[inputFieldIndex] = finishedText;
-                    //inputStrings[inputFieldIndex] = inputStrings[inputFieldIndex].Length > maxChars[inputFieldIndex] ? inputStrings[inputFieldIndex].Substring(0, maxChars[inputFieldIndex]) : inputStrings[inputFieldIndex];
                     keyboardAll.SetActive(false);
                 }
             }
